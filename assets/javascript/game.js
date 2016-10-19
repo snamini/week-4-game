@@ -31,21 +31,55 @@ function startGame () {
 
 
 // When you click the crystal, this will happen
-$( "amethyst" ).click(function() {
-  console.log( "clicked crystal." );
+$( "#amethyst" ).click(function() {
+  console.log( "clicked amethyst");
+  totalscore += amethyst;
+  console.log(totalscore);
+
+      $("#totalscore").text(totalscore);
+
+
+      // if the crystal is equal to the same score, they win. if its over, they loose, 
 });
 
-$( "ruby" ).click(function() {
-  console.log( "clicked crystal." );
+$( "#ruby" ).click(function() {
+  console.log( "clicked ruby." );
+  totalscore += ruby;
+    console.log(totalscore);
+
+       $("#totalscore").text(totalscore);
+
+// if the crystal is equal to the same score, they win. if its over, they loose, 
+
+// if they loose, restart the game. if they win, restart the game. 
+
+// if totalscore is greater than random, losses must equal 1, then start game again.
+
+
 });
 
-$( "diamond" ).click(function() {
-  console.log( "clicked crystal." );
+$( "#diamond" ).click(function() {
+  console.log( "clicked diamond." );
+  totalscore += diamond;
+    console.log(totalscore);
+
+       $("#totalscore").text(totalscore);
 });
 
-$( "quartz" ).click(function() {
-  console.log( "clicked crystal." );
+$( "#quartz" ).click(function() {
+  console.log( "clicked quartz." );
+  totalscore += quartz;
+    console.log(totalscore);
+
+       $("#totalscore").text(totalscore);
 });
+
+
+
+
+
+
+
 
 }
 
