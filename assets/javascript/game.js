@@ -35,17 +35,9 @@ $( "#crystal" ).click(function() {
 
 
 
-
-
-
 // Testing/Debugging
 
 // Reset
-
-
-
-var randomnumber= "????"
-
 
 
 // MAIN PROCESS
@@ -57,18 +49,8 @@ var randomnumber= "????"
 
 // Register Keyclicks
 
-document.onClick = function(event) {
-    var amethyst = String.fromCharCode(event.keyCode).toLowerCase();
-}
-
-document.onClick = function(event) {
-    var ruby = String.fromCharCode(event.keyCode).toLowerCase();
-}
-document.onClick = function(event) {
-    var diamond = String.fromCharCode(event.keyCode).toLowerCase();
-}
-document.onClick = function(event) {
-    var quartz = String.fromCharCode(event.keyCode).toLowerCase();
-}
+$('#crystal').on('click', function() {
+     /* your code here */
+});
 
 console.log(amethyst);
