@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 
 // GLOBAL VARIABLES
 // ------------------------------------------------------------------------------------------------------
@@ -28,7 +30,9 @@ function startGame () {
     quartz = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 
     $("#random").text(random);
-}
+    totalscore = 0;
+    $("totalscore").text(totalscore);
+};
 
 
 // When you click the crystal, this will happen
@@ -40,16 +44,18 @@ $( "#amethyst" ).click(function() {
 
       $("#totalscore").text(totalscore);
 
+
 if (totalscore == random) { 
     wins++
 
     $("#wins").text(wins);
+    startGame();
 
 } else if (totalscore > random) { 
     losses--
 
     $("#losses").text(losses);
-
+    startGame();
 }
 
 });
@@ -65,11 +71,13 @@ if (totalscore == random) {
     wins++
 
     $("#wins").text(wins);
+    startGame();
 
 } else if (totalscore > random) { 
     losses--
 
     $("#losses").text(losses);
+    startGame();
 
 }
 
@@ -87,11 +95,13 @@ if (totalscore == random) {
     wins++
 
     $("#wins").text(wins);
+    startGame();
 
 } else if (totalscore > random) { 
     losses--
 
     $("#losses").text(losses);
+    startGame();
 
 }
 
@@ -108,18 +118,17 @@ if (totalscore == random) {
     wins++
 
     $("#wins").text(wins);
+    startGame();
 
 } else if (totalscore > random) { 
     losses--
 
     $("#losses").text(losses);
+    startGame();
 
 }
 
 });
-
-
-startGame();
 
 // Reset
 // total score resets, and numbers for each crystal and random also reset
@@ -127,17 +136,8 @@ startGame();
 
 
 
-
-// Testing/Debugging
-
-// Reset
+// CALL THE FUNCTIONS
+startGame();
 
 
-// MAIN PROCESS
-// --------------------------------------------------------------------------------------------------------
 
-// initiates the code for the first time:
-    startGame();
-
-
-console.log(amethyst);
