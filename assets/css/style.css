@@ -1,0 +1,64 @@
+body {
+	background-color: #ADD8E6;
+	width: 960px;
+}
+
+.box1 {
+	width: 300px;
+	border: 10px;
+	background-color: orange;
+	text-align: center;
+	color: white;
+	padding: 5px 25px;
+	
+}
+
+.box2 {
+	color: green;
+	margin-top: 10px;
+	background-color: #FAEBD7;
+	width: 350px;
+	padding-top: 5px 15px;
+}
+
+.box3 {
+
+	color: purple;
+	background-color: #ADFF2F;
+	width: 100px;
+	margin-top: 10px;
+
+}
+
+.box4 {
+	width: 100px;
+	height: 75;
+	margin-top: 15px
+	margin-bottom-25px;
+	background-color: #00FFFF;
+	color: black;
+
+}
+
+
+.crystal {
+	margin-top: 10px;
+	max-width: 20%;
+	height: 100px;
+	display: inline-block;
+
+}
+
+.box5 {
+	color: white;
+	background-color: #ADFF2F;
+	width: 100px;
+	margin-top: 10px;
+}
+
+.box6 {
+color: white;
+	background-color: #ADFF2F;
+	width: 100px;
+	margin-top: 10px;
+}
