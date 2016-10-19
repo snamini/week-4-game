@@ -130,6 +130,8 @@ if (totalscore == random) {
 
 });
 
+});
+
 // Reset
 // total score resets, and numbers for each crystal and random also reset
 
