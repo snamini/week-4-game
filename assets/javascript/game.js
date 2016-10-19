@@ -28,18 +28,30 @@ function startGame () {
     quartz = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 
     $("#random").text(random);
+}
 
 
 // When you click the crystal, this will happen
 $( "#amethyst" ).click(function() {
   console.log( "clicked amethyst");
-  totalscore += amethyst;
+  // totalscore += amethyst;
+  totalscore = totalscore + amethyst;
   console.log(totalscore);
 
       $("#totalscore").text(totalscore);
 
+if (totalscore == random) { 
+    wins++
 
-      // if the crystal is equal to the same score, they win. if its over, they loose, 
+    $("#wins").text(wins);
+
+} else if (totalscore > random) { 
+    losses--
+
+    $("#losses").text(losses);
+
+}
+
 });
 
 $( "#ruby" ).click(function() {
@@ -49,14 +61,20 @@ $( "#ruby" ).click(function() {
 
        $("#totalscore").text(totalscore);
 
-// if the crystal is equal to the same score, they win. if its over, they loose, 
+if (totalscore == random) { 
+    wins++
 
-// if they loose, restart the game. if they win, restart the game. 
+    $("#wins").text(wins);
 
-// if totalscore is greater than random, losses must equal 1, then start game again.
+} else if (totalscore > random) { 
+    losses--
 
+    $("#losses").text(losses);
+
+}
 
 });
+
 
 $( "#diamond" ).click(function() {
   console.log( "clicked diamond." );
@@ -64,6 +82,19 @@ $( "#diamond" ).click(function() {
     console.log(totalscore);
 
        $("#totalscore").text(totalscore);
+
+if (totalscore == random) { 
+    wins++
+
+    $("#wins").text(wins);
+
+} else if (totalscore > random) { 
+    losses--
+
+    $("#losses").text(losses);
+
+}
+
 });
 
 $( "#quartz" ).click(function() {
@@ -72,18 +103,26 @@ $( "#quartz" ).click(function() {
     console.log(totalscore);
 
        $("#totalscore").text(totalscore);
-});
 
+if (totalscore == random) { 
+    wins++
 
+    $("#wins").text(wins);
 
+} else if (totalscore > random) { 
+    losses--
 
-
-
-
+    $("#losses").text(losses);
 
 }
 
+});
 
+
+startGame();
+
+// Reset
+// total score resets, and numbers for each crystal and random also reset
 
 
 
