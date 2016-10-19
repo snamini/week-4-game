@@ -26,11 +26,31 @@ function startGame () {
     ruby = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
     diamond = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
     quartz = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+
+    $("#random").text(random);
+
+
+// When you click the crystal, this will happen
+$( "amethyst" ).click(function() {
+  console.log( "clicked crystal." );
+});
+
+$( "ruby" ).click(function() {
+  console.log( "clicked crystal." );
+});
+
+$( "diamond" ).click(function() {
+  console.log( "clicked crystal." );
+});
+
+$( "quartz" ).click(function() {
+  console.log( "clicked crystal." );
+});
+
 }
 
-$( "#crystal" ).click(function() {
-  alert( "Handler for .click() called." );
-});
+
+
 
 
 
@@ -46,11 +66,5 @@ $( "#crystal" ).click(function() {
 // initiates the code for the first time:
     startGame();
 
-
-// Register Keyclicks
-
-$('#crystal').on('click', function() {
-     /* your code here */
-});
 
 console.log(amethyst);
