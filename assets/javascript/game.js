@@ -1,145 +1,126 @@
 $(document).ready(function() {
 
+  var yourMatchingNumber = 0;
 
-// GLOBAL VARIABLES
-// ------------------------------------------------------------------------------------------------------
-// Arrays and Variables for holding data
-var random = 0;
-var amethyst = 0;
-var ruby = 0;
-var diamond = 0;
-var quartz = 0;
+  // Create a random number
+  var randomNum = randomNumGen();
 
-    // Game Counters
+  var wins = 0;
+  var losses = 0;
+  var crystals;
 
-var wins = 0;
-var losses = 0;
-var totalscore = 0;
+  function randomNumCrystals() {
+    // Crystals obj
+    return {
+      "red" : {
+        points: Math.floor(Math.random() * 11) + 1,
+        imageUrl: "assets/images/red.png"
+      },
+      "blue" : {
+        points: Math.floor(Math.random() * 11) + 1,
+        imageUrl: "assets/images/blue.png"
+      },
+      "yellow" : {
+        points: Math.floor(Math.random() * 11) + 1,
+        imageUrl: "assets/images/yellow.png"
+      },
+      "green" : {
+        points: Math.floor(Math.random() * 11) + 1,
+        imageUrl: "assets/images/green.png"
+      }
+    };
+  }
 
-// FUNCTIONS (resusable blocks of code that I will call upon when needed )
-// ------------------------------------------------------------------------------------------------------
+  function randomNumGen(){
+    return Math.floor(Math.random() * 100) + 18;
+  }
 
-// start of game: regenerating a new random number, displaying the current wins and losses, and generate new random numbers for the crystals
+  function setGame() {
+    yourMatchingNumber = 0;
+    // create random crystal numbers
+    crystals = randomNumCrystals();
+    // create a random number and render it
+    randomNum = randomNumGen();
+    var randomNumDiv = $("<div id='random-number'>").text(randomNum);
+    $("#random-area").html(randomNumDiv);
+  }
 
-// function to give you a random number at start
-function startGame () {
-	random = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-    amethyst = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    ruby = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    diamond = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    quartz = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  function updateDom(didUserWin) {
+    $("#winArea").empty();
 
-    $("#random").text(random);
-    totalscore = 0;
-    $("totalscore").text(totalscore);
-};
+    if (didUserWin === true) {
+      $("#winArea").append($("<p>").text("You won!!"));
+      setGame();
+      renderMatchingNumber();
+    }else if (didUserWin === false) {
+      $("#winArea").append($("<p>").text("You lost!!"));
+      setGame();
+      renderMatchingNumber();
+    }
 
+    var wSpan = $("<span>").text(wins);
+    var lSpan = $("<span>").text(losses);
 
-// When you click the crystal, this will happen
-$( "#amethyst" ).click(function() {
-  console.log( "clicked amethyst");
-  // totalscore += amethyst;
-  totalscore = totalscore + amethyst;
-  console.log(totalscore);
+    var pWins = $("<p>").text("Wins: ");
+    var pLosses = $("<p>").text("Losses: ");
 
-      $("#totalscore").text(totalscore);
+    pWins.append(wSpan);
+    pLosses.append(lSpan);
 
+    $('#winArea').append(pWins);
+    $('#winArea').append(pLosses);
+  }
 
-if (totalscore == random) { 
-    wins++
+  function renderCrystals() {
+    // Render crystals
+    for (var key in crystals) {
+      var crystalDiv = $("<div class='crystals-button' data-name='" + key + "'>");
+      var crystalImg = $("<img alt='image' class='crystal-img'>").attr("src", crystals[key].imageUrl);
+      crystalDiv.append(crystalImg);
+      $("#crystal-area").append(crystalDiv);
+    }
+  }
 
-    $("#wins").text(wins);
-    startGame();
+  function updateMatchingNumber(th) {
+    var self = th;
 
-} else if (totalscore > random) { 
-    losses--
+    if (self.attr("data-name") === "red") {
+      yourMatchingNumber = yourMatchingNumber + crystals[self.attr("data-name")].points;
+    }else if (self.attr("data-name") === "blue") {
+      yourMatchingNumber = yourMatchingNumber + crystals[self.attr("data-name")].points;
+    }else if (self.attr("data-name") === "yellow") {
+      yourMatchingNumber = yourMatchingNumber + crystals[self.attr("data-name")].points;
+    }else{
+      yourMatchingNumber = yourMatchingNumber + crystals[self.attr("data-name")].points;
+    }
+  }
 
-    $("#losses").text(losses);
-    startGame();
-}
+  function renderMatchingNumber(){
+    var scoreNumDiv = $("<div id='score-number'>").text(yourMatchingNumber);
+    $("#score-area").html();
+    $("#score-area").html(scoreNumDiv);
+  }
 
-});
+  setGame();
+  updateDom();
+  renderCrystals();
+  renderMatchingNumber();
 
-$( "#ruby" ).click(function() {
-  console.log( "clicked ruby." );
-  totalscore += ruby;
-    console.log(totalscore);
+  //create on.click event for crystals
+  $(".crystals-button").on("click", function(event) {
+    updateMatchingNumber($(this));
+    renderMatchingNumber();
 
-       $("#totalscore").text(totalscore);
-
-if (totalscore == random) { 
-    wins++
-
-    $("#wins").text(wins);
-    startGame();
-
-} else if (totalscore > random) { 
-    losses--
-
-    $("#losses").text(losses);
-    startGame();
-
-}
-
-});
-
-
-$( "#diamond" ).click(function() {
-  console.log( "clicked diamond." );
-  totalscore += diamond;
-    console.log(totalscore);
-
-       $("#totalscore").text(totalscore);
-
-if (totalscore == random) { 
-    wins++
-
-    $("#wins").text(wins);
-    startGame();
-
-} else if (totalscore > random) { 
-    losses--
-
-    $("#losses").text(losses);
-    startGame();
-
-}
-
-});
-
-$( "#quartz" ).click(function() {
-  console.log( "clicked quartz." );
-  totalscore += quartz;
-    console.log(totalscore);
-
-       $("#totalscore").text(totalscore);
-
-if (totalscore == random) { 
-    wins++
-
-    $("#wins").text(wins);
-    startGame();
-
-} else if (totalscore > random) { 
-    losses--
-
-    $("#losses").text(losses);
-    startGame();
-
-}
+    //check if won or lost
+    if (yourMatchingNumber == randomNum) {
+      wins++;
+      setGame();
+      updateDom(true);
+    }else if (yourMatchingNumber > randomNum) {
+      losses++;
+      setGame();
+      updateDom(false);
+    }
+  });
 
 });
-
-});
-
-// Reset
-// total score resets, and numbers for each crystal and random also reset
-
-
-
-
-// CALL THE FUNCTIONS
-startGame();
-
-
-

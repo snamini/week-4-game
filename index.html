@@ -3,68 +3,42 @@
 
 <html>
 <head>
-    <title>Game</title>
-
- <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-
+  <title>Game</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script type= "text/javascript" src="assets/javascript/game.js"> </script>
 </head>
 
 <body>
 
-<div class="box1">
-    <div class="row col-xs-12">
-        <h1><b>Crystals Collector!</b></h1>
-    </div>
-</div>
+	<h1 id="title">CrystalsCollector!</h1>
 
-<div class="box2">
+	<div id="rules-area">
+		<h4>You will be given a random number at the start of the game.</h4>
+		</n>
+		<h4>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</h4>
+		</n>
+		<h4>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</h4>
+		</n>
+		<h4>The value of each crystal is hidden from you until you click on it.</h4>
+		</n>
+		<h4>Each time when the game starts, the game will change the values of each crystal</h4>
+	</div>
 
-<p><b>You will be given a random number at the start of the game.</b></p>
-<b>
-<p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
-<b>
-<p>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
-<b>
-<p>The value of each crystal is hidden from you until you click on it.</p>
-<b>
-<p>Each time the game starts, it will change the values of each crystal.</p>
-<b>
+	<div id="screen">
+		<div id="random-area">
+			<div>The random number is:</div>
+		</div>
+		<div id="winArea"></div>
+	</div>
 
-</div>
-
-<div class = "box3">
-	<h2 id= "random" >0</h2>
-</div>
-
-<div class="box4">
-<p> wins: <span id= "wins" >0</span></p>
-<p> losses:  <span id="losses">0</span></p>
-</div>
-
-
-<div class= "crystalimages">
-
-		<img class= "crystal" id="amethyst" src="assets/images/amethyst.jpg" alt="crystal">
-
-		<img class= "crystal" id="ruby" src="assets/images/ruby.jpg" alt="crystal">
-
-		<img class= "crystal" id="diamond" src="assets/images/diamond.jpg" alt="crystal">
-
-		<img class= "crystal" id="quartz" src="assets/images/quartz.jpg" alt="crystal">
-</div>
-
-<div class="box5">
-<p> Your total score is: <span id = "totalscore">0</span></p>
-</div>
-
-
-</div>
+	<div>
+		<div id="crystal-area"></div>
+		<div id="score-title">Your total score is:</div>
+		<div id="score-area"></div>
+	</div>
 
 </body>
 
-
-
 </html>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script type= "text/javascript" src="assets/javascript/game.js"> </script>
